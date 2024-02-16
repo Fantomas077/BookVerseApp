@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace BookVerse.Models
@@ -17,6 +18,9 @@ namespace BookVerse.Models
         [Range(1, 100, ErrorMessage = "Display Oder muss beetween 1-100 ")]
         [DisplayName("Display Order")]
         public int DisplayOrder { get; set; }
+
+        [ValidateNever]
+        public List<Book> Book { get; set; }
 
     }
 }
