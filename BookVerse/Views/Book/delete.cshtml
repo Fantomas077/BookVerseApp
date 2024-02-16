@@ -5,30 +5,30 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<form method="post" enctype="multipart/form-data" asp-controller="Book" asp-action="Create">
+<form method="post" enctype="multipart/form-data" asp-controller="Book" asp-action="Delete">
     <div class="card border-secondary mb-3">
-        <div class="card-header bg-primary text-white">Create Book</div>
+        <div class="card-header bg-primary text-white">Delete Book</div>
         <div class="card-body">
             <div class="row">
                 <div class="col-12">
                     <!-- Title -->
                     <div class="mb-3">
                         <label asp-for="Title" class="form-label">Title</label>
-                        <input asp-for="Title" class="form-control" />
+                        <input asp-for="Title" class="form-control" disabled />
                         <span asp-validation-for="Title" class="text-danger"></span>
                     </div>
 
                     <!-- Content -->
                     <div class="mb-3">
                         <label asp-for="Content" class="form-label">Content</label>
-                        <textarea asp-for="Content" class="form-control" rows="4"></textarea>
+                        <textarea asp-for="Content" class="form-control" rows="4" disabled></textarea>
                         <span asp-validation-for="Content" class="text-danger"></span>
                     </div>
 
                     <!-- Author -->
                     <div class="mb-3">
                         <label asp-for="Author" class="form-label">Author</label>
-                        <input asp-for="Author" class="form-control" />
+                        <input asp-for="Author" class="form-control" disabled/>
                         <span asp-validation-for="Author" class="text-danger"></span>
                     </div>
 
@@ -42,21 +42,21 @@
                     <!-- Category -->
                     <div class="mb-3">
                         <label asp-for="CategoryId" class="form-label">Category</label>
-                        <select asp-for="CategoryId" asp-items="@ViewBag.Categories" class="form-select"></select>
+                        <select asp-for="CategoryId" asp-items="@ViewBag.Categories" class="form-select"disabled></select>
                         <span asp-validation-for="CategoryId" class="text-danger"></span>
                     </div>
 
                     <!-- Image -->
                     <div class="mb-3">
                         <label asp-for="ImageFile" class="form-label">Image</label>
-                        <input asp-for="ImageFile" name="ImageFile" type="file" class="form-control" />
+                        <input asp-for="ImageFile" name="ImageFile" type="file" class="form-control"disabled />
                         <span asp-validation-for="ImageFile" class="text-danger"></span>
                     </div>
 
                     <!-- Buttons -->
                     <div class="row">
                         <div class="col-6">
-                            <button type="submit" class="btn btn-primary form-control">Create</button>
+                            <button type="submit" class="btn btn-primary form-control">Delete</button>
                         </div>
                         <div class="col-6">
                             <a asp-controller="Book" asp-action="Index" class="btn btn-outline-secondary form-control">Back to List</a>
@@ -64,8 +64,8 @@
                     </div>
                 </div>
 
-                
-              
+
+
             </div>
         </div>
     </div>
