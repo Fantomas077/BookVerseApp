@@ -13,7 +13,7 @@ namespace BookVerse.Models
         [DisplayName("Name")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "The Name field is Required.")]
+        [Required(ErrorMessage = "The DisplayOrder field is Required.")]
         [Range(1, 100, ErrorMessage = "Display Oder muss beetween 1-100 ")]
         [DisplayName("Display Order")]
         public int DisplayOrder { get; set; }
