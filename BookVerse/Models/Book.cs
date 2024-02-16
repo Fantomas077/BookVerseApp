@@ -14,7 +14,7 @@ namespace BookVerse.Models
         [Required(ErrorMessage = "The Content field is Required.")]
         public string Content { get; set; }
         [Required]
-        [DataType(DataType.Date)]
+        [DataType(DataType.DateTime)]
         public DateTime Posteddate { get; set; }
 
         [Required(ErrorMessage = "The Author field is Required.")]

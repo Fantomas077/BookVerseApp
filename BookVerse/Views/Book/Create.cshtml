@@ -10,7 +10,7 @@
         <div class="card-header bg-primary text-white">Create Book</div>
         <div class="card-body">
             <div class="row">
-                <div class="col-10">
+                <div class="col-12">
                     <!-- Title -->
                     <div class="mb-3">
                         <label asp-for="Title" class="form-label">Title</label>
@@ -64,13 +64,8 @@
                     </div>
                 </div>
 
-                <!-- Image Preview -->
-                <div class="col-2">
-                    @if (Model.ImageFile != null)
-                    {
-                        <img src="@Url.Content(Model.ImageFile.FileName)" width="100%" alt="Image Preview" />
-                    }
-                </div>
+                
+              
             </div>
         </div>
     </div>
