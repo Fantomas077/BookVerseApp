@@ -22,6 +22,7 @@ namespace BookVerse.Models
         public string Author { get; set; }
         public string? ImageName { get; set; }
         [NotMapped]
+
         public IFormFile ImageFile { get; set; }
 
         [ForeignKey("CategoryId")]
