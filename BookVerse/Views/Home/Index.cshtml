@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<BookVerse.Models.Book>
+@{
     ViewData["Title"] = "Home Page";
 }
 <div class="container rounded-3 p-5 my-4" style="background-color: #325D88; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
@@ -8,12 +9,52 @@
     </div>
     <blockquote class="blockquote text-light">
         <p class="mb-0">"La lecture est une conversation silencieuse entre l'auteur et le lecteur."</p>
-      
     </blockquote>
 </div>
-<div>
-    
 
+<div class="row ">
+    @functions {
+        public string TruncateText(string text, int maxLength)
+        {
+            if (text.Length <= maxLength)
+            {
+                return text;
+            }
+            else
+            {
+                return text.Substring(0, maxLength) + "...";
+            }
+        }
+    }
+    @foreach (var book in Model)
+    {
+        <div class="col-lg-3 col-md-6">
+            <div class="row p-2">
+                <div class="col-12">
+                    <div class="card shadow border-top border-2 rounded p-0 " style="width: 20rem;">
+                        <img src="@book.ImageName" class="card-img-top" alt="Book Cover" style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <p class="card-text text-muted">@book.Posteddate.ToString("dd.MM.yyyy")</p>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title text-dark"><strong>@book.Title</strong></h5>
+                            <p class="card-text">@Html.Raw(TruncateText(book.Content, 100))</p>
+
+                        </div>
+                        <div class="card-body d-flex justify-content-end">
+                            <a href="#" class="btn btn-primary">Read more</a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+            
+        </div>
+
+       
+            
+        
+    }
 </div>
-
-

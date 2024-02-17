@@ -1,21 +1,27 @@
+using BookVerse.Data;
 using BookVerse.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+
+using Microsoft.EntityFrameworkCore;
 
 namespace BookVerse.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        public readonly ApplicationDbContext _db;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext db)
         {
             _logger = logger;
+            _db = db;
         }
 
         public IActionResult Index()
         {
-            return View();
+            List<Book> allBooks = _db.Books.Include(b => b.Category).ToList();
+            return View(allBooks);
         }
 
         public IActionResult Privacy()
