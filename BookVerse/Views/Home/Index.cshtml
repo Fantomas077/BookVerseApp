@@ -32,17 +32,21 @@
             <div class="row ">
                 <div class="col-12">
                     <div class="card shadow border-top border-2 rounded p-0 " style="width: 20rem;">
-                        <img src="@book.ImageName" class="card-img-top img-fluid" alt="Book Cover" style="height: 200px; object-fit: cover;">
-                        <div class="card-body d-flex justify-content-end">
-                            <p class="card-text text-muted">publied the @book.Posteddate.ToString("dd.MM.yyyy")</p>
-                        </div>
-                        <div class="card-body ">
+                        <img src="@book.ImageName" class="card-img-top rounded" alt="Book Cover" style="height: 200px; object-fit: cover;">
+                      @*   <div class="card-body d-flex justify-content-end">
+                            <p class="card-text text-muted">release date the @book.Posteddate.ToString("dd.MM.yyyy")</p>
+                        </div> *@
+                        <div class="card-body pb-0 ">
                             <h5 class="card-title text-dark"><strong>@book.Title</strong></h5>
+                            <p class="card-text text-muted">@book.Category.Name </p>
+
+                        </div>
+                        <div class="card-body bg-light">
                             <p class="card-text">@Html.Raw(TruncateText(book.Content, 100))</p>
 
                         </div>
                         <div class="card-body d-flex justify-content-end">
-                            <a href="#" class="btn btn-primary">Read more</a>
+                            <a href="#"  class="btn btn-primary">Read more</a>
                         </div>
                     </div>
 
