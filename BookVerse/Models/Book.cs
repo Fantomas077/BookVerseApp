@@ -29,7 +29,7 @@ namespace BookVerse.Models
         public int CategoryId { get; set; }
 
         // Navigation property
-        public Category Category { get; set; }
+        public virtual Category Category { get; set; }
 
 
     }

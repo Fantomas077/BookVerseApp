@@ -28,6 +28,27 @@ namespace BookVerse.Controllers
         {
             return View();
         }
+        public IActionResult Details(int? id)
+        {
+
+
+            if (id == null || _db.Books == null)
+            {
+                return NotFound();
+            }
+
+            var ressource = _db.Books
+                 .Include(b => b.Category)
+                .FirstOrDefault(m => m.Id == id);
+            if (ressource == null)
+            {
+                return NotFound();
+            }
+
+            return View(ressource);
+
+
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

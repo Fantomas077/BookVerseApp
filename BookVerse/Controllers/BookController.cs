@@ -56,6 +56,7 @@ namespace BookVerse.Controllers
 
             _db.Books.Add(resource);
             _db.SaveChanges();
+            TempData["Success"] = "Book Create successfully";
             return RedirectToAction("Index");
 
 
@@ -110,6 +111,7 @@ namespace BookVerse.Controllers
 
             _db.Books.Update(resource);
             _db.SaveChanges();
+            TempData["Success"] = "Book Update successfully";
             return RedirectToAction("Index");
 
 
@@ -143,26 +145,14 @@ namespace BookVerse.Controllers
 
         }
         [HttpPost]
-        public async Task<IActionResult> Delete(Book resource)
+        public IActionResult Delete(Book resource)
         {
 
-            if (resource.ImageFile != null)
-            {
-                var folder = "images/";
-                var uniqueFileName = Guid.NewGuid().ToString() + "_" + resource.ImageFile.FileName;
-                var serverFolder = Path.Combine(_webHostEnvironment.WebRootPath, folder);
 
-
-                using (var fileStream = new FileStream(Path.Combine(serverFolder, uniqueFileName), FileMode.Create))
-                {
-                    await resource.ImageFile.CopyToAsync(fileStream);
-                }
-
-                resource.ImageName = Path.Combine(folder, uniqueFileName);
-            }
 
             _db.Books.Remove(resource);
             _db.SaveChanges();
+            TempData["Success"] = "Book Remove successfully";
             return RedirectToAction("Index");
 
 
