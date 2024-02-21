@@ -17,7 +17,7 @@
                 <div class="card-header bg-primary text-white text-center">Registrierung bei BookVerse</div>
                 <div class="card-body">
 
-                    <form asp-action="Registration" method="post">
+                    <form asp-action="Register" method="post" asp-controller="Registration">
                         <div class="form-group">
                             <label asp-for="Name" class="font-weight-bold">Vorname:</label>
                             <input asp-for="Name" class="form-control" placeholder="Ihr Name">
