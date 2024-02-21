@@ -1,0 +1,48 @@
+﻿@model BookVerse.Models.Login
+
+@{
+    ViewData["Title"] = "Anmeldung";
+}
+
+<div class="container py-2">
+    <div class="row justify-content-center align-items-center min-vh-50">
+        <div class="col-lg-6">
+            <div class="card border-primary mb-3">
+                <div class="card-header bg-primary text-white text-center">Anmeldung bei BookVerse</div>
+                <div class="card-body ">
+                    <form asp-action="Index" method="post">
+
+                        <div class="form-group py-2">
+                            <label asp-for="Email" class="font-weight-bold">E-Mail-Adresse:</label>
+                            <input asp-for="Email" type="email" class="form-control" placeholder="Ihre E-Mail-Adresse eingeben">
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group py-2">
+                            <label asp-for="Password" class="font-weight-bold">Passwort:</label>
+                            <input asp-for="Password" type="password" class="form-control" placeholder="Ihr Passwort eingeben">
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group py-2">
+                            <div class="custom-control custom-checkbox">
+                                <input asp-for="RememberMe" class="custom-control-input" type="checkbox" id="customCheck1">
+                                <label class="custom-control-label" for="customCheck1">Angemeldet bleiben</label>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary btn-block">Anmelden</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

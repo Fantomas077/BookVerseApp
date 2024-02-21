@@ -1,0 +1,65 @@
+﻿@model Registration
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <div class="row justify-content-center align-items-center min-vh-50">
+        <div class="col-lg-7">
+            <h2 class="text-primary text-center mb-4">Willkommen bei BookVerse</h2>
+            <p class="text-justify">
+                Entdecken Sie literarische Vielfalt, teilen Sie Ihre Entdeckungen und vernetzen Sie sich mit
+                anderen Enthusiasten. Registrieren Sie sich noch heute für eine bereichernde Leseerfahrung.
+            </p>
+        </div>
+        <div class="col-lg-5">
+            <div class="card border-primary mb-3">
+                <div class="card-header bg-primary text-white text-center">Registrierung bei BookVerse</div>
+                <div class="card-body">
+
+                    <form asp-action="Registration" method="post">
+                        <div class="form-group">
+                            <label asp-for="Name" class="font-weight-bold">Vorname:</label>
+                            <input asp-for="Name" class="form-control" placeholder="Ihr Name">
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label asp-for="Vorname" class="font-weight-bold">Vorname:</label>
+                            <input asp-for="Vorname" class="form-control" placeholder="Ihr Vorname">
+                            <span asp-validation-for="Vorname" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Email" class="font-weight-bold">E-Mail:</label>
+                            <input asp-for="Email" type="email" class="form-control" placeholder="Ihre E-Mail-Adresse">
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Password" class="font-weight-bold">Passwort:</label>
+                            <input asp-for="Password" type="password" class="form-control" placeholder="Ihr Passwort">
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+                        <div class="row py-2">
+                            <div class="col-6">
+                                <button type="submit" class="btn btn-primary form-control">Registrieren</button>
+                            </div>
+                            <div class="col-6">
+                                <a asp-controller="LogIn" asp-action="Index" class="btn btn-outline-primary form-control">Anmelden</a>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}
