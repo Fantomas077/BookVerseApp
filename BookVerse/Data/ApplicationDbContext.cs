@@ -12,5 +12,6 @@ namespace BookVerse.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<Book> Books { get; set; }
         public DbSet<Registration> Registrations { get; set; }
+        public DbSet<Login> Logins { get; set; }
     }
 }
