@@ -11,7 +11,7 @@ Das [BookVerseApp]-Projekt ist eine Plattform für kollaboratives Schreiben, auf
 - Erstellen und Veröffentlichen Sie Ihre eigenen Geschichten.
 - Entdecken Sie Geschichten, die von anderen Autoren erstellt wurden.
 - Kategorienverwaltung für eine effiziente Organisation.
-- Kommentarsystem zum Interagieren mit Autoren und Lesern.
+
 
 
 
